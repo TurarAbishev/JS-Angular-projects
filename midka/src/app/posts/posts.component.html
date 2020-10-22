@@ -1,0 +1,20 @@
+CREATE POST
+<div>
+  <input type="text" [(ngModel)]="title">
+  <input type="text" [(ngModel)]="body">
+  <button (click)="createPost()">CREATE</button>
+</div>
+<br>
+
+<div>
+  <input type="text" [(ngModel)]="author">
+  <button (click)="filter()">Filter</button>
+</div>
+
+<div class="posts">
+  POSTS:
+  <div *ngFor="let p of posts">
+    <span routerLink="/posts/{{p.id}}">{{p.title}}</span>
+  </div>
+
+</div>

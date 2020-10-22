@@ -1,0 +1,16 @@
+<div>
+  <h1>{{post.title}}</h1>
+  <h4>{{post.body}}</h4>
+  comments:
+    <div *ngFor="let comment of comments">
+      <p>{{comment.email}}</p>
+      {{comment.name}}: {{comment.body}}
+    </div>
+  Leave a comment:
+  <div>
+    <input type="text" [(ngModel)]="name">
+    <input type="text" [(ngModel)]="body">
+    <button (click)="commentPost()">Comment</button>
+  </div>
+
+</div>

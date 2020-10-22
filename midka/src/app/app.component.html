@@ -1,0 +1,53 @@
+<div>
+  <ng-container *ngIf="!logged">
+    <div style="float: left">
+      <div>
+        <label for="user">Username</label>
+        <input type="text" id="user" [(ngModel)]="username">
+      </div>
+      <div>
+        <label for="password"></label>
+        <input id="password" type="password" [(ngModel)]="password">
+      </div>
+      <button (click)="auth()">LOG IN</button>
+    </div>
+    <div>
+      <div>
+        <label for="newuser">New Username</label>
+        <input id="newuser" type="text" [(ngModel)]="signUpName">
+      </div>
+      <div>
+        <label for="email">E-mail</label>
+        <input id="email" type="text" [(ngModel)]="email">
+      </div>
+      <div>
+        <label for="newpassword">Password</label>
+        <input id="newpassword" type="password" [(ngModel)]="signUpPassword">
+      </div>
+      <button class="but" (click)="signup()">SIGN UP</button>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="logged">
+    <h4>Hi, {{loggedUsername}}</h4>
+    <div>
+      <button routerLink="/">MAIN PAGE</button>
+    </div>
+    <div>
+      <button routerLink="/posts/">POSTS</button>
+    </div>
+<!--    <div>-->
+<!--      <button routerLink="/users/">USERS</button>-->
+<!--    </div>-->
+    <div>
+      <button (click)="logout()">LOG OUT</button>
+    </div>
+  </ng-container>
+  <app-users>
+      <div *ngFor="let user of users">
+        <span routerLink="/users/{{user.id}}">
+          {{user.username}} : {{user.email}}
+        </span>
+      </div>
+  </app-users>
+  <router-outlet></router-outlet>
+</div>
